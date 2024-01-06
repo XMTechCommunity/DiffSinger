@@ -30,7 +30,7 @@ mel = pathlib.Path(args.mel)
 name = mel.stem if not args.title else args.title
 config = None
 if args.exp:
-    config = root_dir / 'checkpoints' / args.exp / 'config.yaml'
+    config = root_dir / 'ckpt' / args.exp / 'config.yaml'
 elif args.config:
     config = pathlib.Path(args.config)
 else:

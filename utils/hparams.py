@@ -56,7 +56,7 @@ def set_hparams(config='', exp_name='', hparams_str='', print_hparams=True, glob
     args_work_dir = ''
     if args.exp_name != '':
         args.work_dir = args.exp_name
-        args_work_dir = os.path.join('checkpoints', args.work_dir)
+        args_work_dir = os.path.join('ckpt', args.work_dir)
 
     config_chains = []
     loaded_config = set()

@@ -81,7 +81,7 @@ if __name__ == "__main__":
     import random
     from tqdm import tqdm
 
-    ds_path = './checkpoints/indexed_ds_example'
+    ds_path = './ckpt/indexed_ds_example'
     size = 100
     items = [{"a": np.random.normal(size=[10000, 10]),
               "b": np.random.normal(size=[10000, 10])} for i in range(size)]
