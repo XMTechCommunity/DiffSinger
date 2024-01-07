@@ -3,9 +3,11 @@
 这是由XMTech维护的，基于OpenVPI维护的DiffSinger的二次开发分支，代码克隆于2023年10月8日。
 相较于原版仓库，本分支拥有更快的训练速度，完善的拼接引擎授权声库声库迁移流程，以及更简易的训练步骤。目前推荐暂不开启ENE BRI参数，以及有拼接引擎授权声库迁移需求的用户使用。
 
----
-
 [DiffSinger_Toolkit 声库制作辅助工具](https://openi.pcl.ac.cn/XMTech/DiffSinger_Toolkit)
+
+本分支受Apache 2.0 License 开源协议保护。
+
+---
 
 # DiffSinger (OpenVPI maintained version)
 
