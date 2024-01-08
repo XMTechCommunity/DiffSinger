@@ -8,7 +8,7 @@ This is a fork of DiffSinger maintained by XMTech, cloned on 2023-10-08.
 Compared to the original repository, this branch has faster training speed, a well-designed splicing engine, and a more streamlined training process.
 We will ensure compatibility with the original repository in the early stages, and provide more features in subsequent versions.
 
-## 
+## References
 - **DiffSinger**: [Original](https://github.com/MoonInTheRiver/DiffSinger),[OpenVPI maintained version](https://github.com/openvpi/DiffSinger)
 - **DiffSinger_Toolkit 声库制作辅助工具**: [启智 OpenI](https://openi.pcl.ac.cn/XMTech/DiffSinger_Toolkit)
 - **OpenUtau**: [Github](https://github.com/stakira/OpenUtau)
