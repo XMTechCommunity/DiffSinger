@@ -1,13 +1,24 @@
 # DiffSinger (XMTech maintained version)
 
 这是由XMTech维护的，基于OpenVPI维护的DiffSinger的二次开发分支，代码克隆于2023年10月8日。
-相较于原版仓库，本分支拥有更快的训练速度，完善的拼接引擎授权声库声库迁移流程，以及更简易的训练步骤。目前推荐暂不开启ENE BRI参数，以及有拼接引擎授权声库迁移需求的用户使用。
+相较于原版仓库，本分支拥有更快的训练速度，完善的拼接引擎授权声库声库迁移流程，以及更简易的训练步骤。
+在前期，我们会保证代码与原版仓库的兼容性，并在后续版本中提供更多的功能。
 
-## Toolkit
-[DiffSinger_Toolkit 声库制作辅助工具](https://openi.pcl.ac.cn/XMTech/DiffSinger_Toolkit)
+This is a fork of DiffSinger maintained by XMTech, cloned on 2023-10-08.
+Compared to the original repository, this branch has faster training speed, a well-designed splicing engine, and a more streamlined training process.
+We will ensure compatibility with the original repository in the early stages, and provide more features in subsequent versions.
+
+## 
+- **DiffSinger**: [Original](https://github.com/MoonInTheRiver/DiffSinger),[OpenVPI maintained version](https://github.com/openvpi/DiffSinger)
+- **DiffSinger_Toolkit 声库制作辅助工具**: [启智 OpenI](https://openi.pcl.ac.cn/XMTech/DiffSinger_Toolkit)
+- **OpenUtau**: [Github](https://github.com/stakira/OpenUtau)
+- **OpenUtau For DiffSinger 白糖の正义铃维护版本**: [Github](https://github.com/atonyxu/OpenUtau)
+- **XMTech VCS Vocoder 社区版本**: [启智 OpenI](https://openi.pcl.ac.cn/XMTech/XMTech_VCS_Hifigan_Vocoder_Community)
 
 ## License
 本分支受Apache 2.0 License 开源协议保护。
+
+This branch is licensed under the Apache 2.0 License.
 
 ---
 
