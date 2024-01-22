@@ -20,3 +20,5 @@ tensorboard
 tensorboardX
 torchmetrics
 tqdm
+fish-audio-preprocess==0.1.9
+mmengine
