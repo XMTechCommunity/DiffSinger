@@ -40,6 +40,7 @@ We will ensure compatibility with the original repository in the early stages, a
 
 ## References
 - **DiffSinger**: [Original](https://github.com/MoonInTheRiver/DiffSinger),[OpenVPI maintained version](https://github.com/openvpi/DiffSinger)
+- **DiffSinger_XMTech_Maintained_Version**: [Github](https://github.com/komisteng/DiffSinger),[启智 OpenI](https://openi.pcl.ac.cn/XMTech/DiffSinger)
 - **DiffSinger_Toolkit 声库制作辅助工具**: [启智 OpenI](https://openi.pcl.ac.cn/XMTech/DiffSinger_Toolkit)
 - **OpenUtau**: [Github](https://github.com/stakira/OpenUtau)
 - **OpenUtau For DiffSinger 白糖の正义铃维护版本**: [Github](https://github.com/atonyxu/OpenUtau)
