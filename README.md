@@ -1,8 +1,8 @@
 # DiffSinger (XMTech maintained version)
 
 这是由XMTech维护的，基于OpenVPI维护的DiffSinger的二次开发分支，代码克隆于2023年10月8日。
-相较于原版仓库，本分支拥有更快的训练速度，完善的拼接引擎授权声库声库迁移流程，以及更简易的训练步骤。
-在前期，我们会保证代码与原版仓库的兼容性，并在后续版本中提供更多的功能。
+<br />相较于原版仓库，本分支拥有更快的训练速度，完善的拼接引擎授权声库声库迁移流程，以及更简易的训练步骤。
+<br />在前期，我们会保证代码与原版仓库的兼容性，并在后续版本中提供更多的功能。
 
 This is a fork of DiffSinger maintained by XMTech, cloned on 2023-10-08.
 Compared to the original repository, this branch has faster training speed, a well-designed splicing engine, and a more streamlined training process.
@@ -11,32 +11,32 @@ We will ensure compatibility with the original repository in the early stages, a
 ## 不兼容更新预告 Notice of Incompatible Update
 
 为方便后续更新维护，由 XMTech 的 DiffSinger 分支将在近期进行功能性切割，不再确保与 OpenVPI 仓库 DiffSinger 保持兼容。
-导出的 ONNX 文件不能确保在当前任何版本 OpenUtau 中调用，我们会开发临时的推理服务端用于图形化推理（接口类似于 ENUNU_Server）。
-【新增】
-1.新增对 refinegan 声码器的支持，并将默认推荐声码器修改为 Kouon_Vocoder_refinegan。
-（Kouon_Vocoder 公测群号：749073684）
-2.新增 multi-langs 项目词典支持，并将默认配置文件的词典替换为 multi-langs 三段式中文词典。
-【修改】
-1.取消独立的预处理步骤，优化训练流程，当不存在对应 binary 文件夹时自动进行预处理。
-2.将 checkpoints 目录名替换为 ckpt，以保证在 jupyter-lab 中正常打开模型文件夹。
-3.优化 onnx 文件导出流程。
-【移除】
-1.彻底移除残留的 DiffSpeech 组件。
-2.移除唱法模型流程，初版本仅支持性别与辅音速度。
+<br />导出的 ONNX 文件不能确保在当前任何版本 OpenUtau 中调用，我们会开发临时的推理服务端用于图形化推理（接口类似于 ENUNU_Server）。
+<br />【新增】
+<br />1.新增对 refinegan 声码器的支持，并将默认推荐声码器修改为 Kouon_Vocoder_refinegan。
+<br />（Kouon_Vocoder 公测群号：749073684）
+<br />2.新增 multi-langs 项目词典支持，并将默认配置文件的词典替换为 multi-langs 三段式中文词典。
+<br />【修改】
+<br />1.取消独立的预处理步骤，优化训练流程，当不存在对应 binary 文件夹时自动进行预处理。
+<br />2.将 checkpoints 目录名替换为 ckpt，以保证在 jupyter-lab 中正常打开模型文件夹。
+<br />3.优化 onnx 文件导出流程。
+<br />【移除】
+<br />1.彻底移除残留的 DiffSpeech 组件。
+<br />2.移除唱法模型流程，初版本仅支持性别与辅音速度。
 
-In order to facilitate subsequent update maintenance, the DiffSinger branch maintained by XMTech will be functional cut in the near future, and compatibility with the DiffSinger repository in the OpenVPI warehouse will no longer be guaranteed.
-The ONNX files exported cannot ensure compatibility with any current version of OpenUtau, and we will develop a temporary inference server for graphical inference (with an interface similar to ENUNU_Server).
-【New】
-1.Add support for refinegan vocoder, and change the default recommended vocoder to Kouon_Vocoder_refinegan.
-(Kouon_Vocoder public test QQ group number: 749073684)
-2.Add multi-langs project dictionary support, and replace the dictionary in the default configuration file with the three-part Chinese dictionary.
-【Modify】
-1.Cancel the independent preprocessing step, optimize the training process, and automatically perform preprocessing when the corresponding binary folder does not exist.
-2.Replace the checkpoints directory name with ckpt to ensure normal opening of the model folder in jupyter-lab.
-3.Optimize the export process of onnx files.
-【Remove】
-1.Completely remove the residual DiffSpeech components.
-2.Remove the variance model workflow and create a preliminary version that supports gender and vel.
+<br />In order to facilitate subsequent update maintenance, the DiffSinger branch maintained by XMTech will be functional cut in the near future, and compatibility with the DiffSinger repository in the OpenVPI warehouse will no longer be guaranteed.
+<br />The ONNX files exported cannot ensure compatibility with any current version of OpenUtau, and we will develop a temporary inference server for graphical inference (with an interface similar to ENUNU_Server).
+<br />【New】
+<br />1.Add support for refinegan vocoder, and change the default recommended vocoder to Kouon_Vocoder_refinegan.
+<br />(Kouon_Vocoder public test QQ group number: 749073684)
+<br />2.Add multi-langs project dictionary support, and replace the dictionary in the default configuration file with the three-part Chinese dictionary.
+<br />【Modify】
+<br />1.Cancel the independent preprocessing step, optimize the training process, and automatically perform preprocessing when the corresponding binary folder does not exist.
+<br />2.Replace the checkpoints directory name with ckpt to ensure normal opening of the model folder in jupyter-lab.
+<br />3.Optimize the export process of onnx files.
+<br />【Remove】
+<br />1.Completely remove the residual DiffSpeech components.
+<br />2.Remove the variance model workflow and create a preliminary version that supports gender and vel.
 
 ## References
 - **DiffSinger**: [Original](https://github.com/MoonInTheRiver/DiffSinger),[OpenVPI maintained version](https://github.com/openvpi/DiffSinger)
