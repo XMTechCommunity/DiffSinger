@@ -26,9 +26,9 @@ binarization_args:
   prefer_ds: false
 
 raw_data_dir: 'data/opencpop_variance/raw'
-binary_data_dir: 'data/opencpop_variance/binary'
+binary_data_dir: 'data/variance_binary'
 binarizer_cls: preprocessing.variance_binarizer.VarianceBinarizer
-dictionary: dictionaries/opencpop-extension.txt
+dictionary: dictionaries/multi-langs_dictionary_CHN_TRI.txt
 num_pad_tokens: 1
 
 use_spk_id: false
