@@ -9,8 +9,8 @@ import torch
 from fish_diffusion.utils.audio import dynamic_range_compression, get_mel_transform
 from fish_diffusion.utils.pitch_adjustable_mel import PitchAdjustableMelSpectrogram
 
-from .builder import VOCODERS
-from .generator import RefineGANGenerator
+from refinegan.builder import VOCODERS
+from refinegan.generator import RefineGANGenerator
 
 
 @VOCODERS.register_module()
