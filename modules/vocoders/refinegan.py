@@ -9,12 +9,15 @@ import torch
 from fish_diffusion.utils.audio import dynamic_range_compression, get_mel_transform
 from fish_diffusion.utils.pitch_adjustable_mel import PitchAdjustableMelSpectrogram
 
+from basics.base_vocoder import BaseVocoder
+from modules.vocoders.registry import register_vocoder
+
 from refinegan.builder import VOCODERS
 from refinegan.generator import RefineGANGenerator
 
 
-@VOCODERS.register_module()
-class RefineGAN(pl.LightningModule):
+@register_vocoder()
+class RefineGAN(BaseVocoder):
     def __init__(
         self,
         checkpoint_path: str = "ckpt/refinegan/model",
