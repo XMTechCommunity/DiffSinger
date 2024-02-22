@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 from typing import List
 
+import shutil
 import click
 import torch
 
@@ -61,11 +62,17 @@ def parse_spk_settings(export_spk, freeze_spk):
             freeze_spk_mix = (freeze_spk, {freeze_spk: 1.0})
     return export_spk_mix, freeze_spk_mix
 
+def find_newest_ckpt(exp):
+    files = os.listdir(exp)
+    files.sort(key=lambda x: os.path.getmtime(os.path.join(exp, x)),reverse=True)
+    for file in files:
+        if file.endswith('.ckpt'):
+            return os.path.join(exp, file)
+    return None
 
 @click.group()
 def main():
     pass
-
 
 @main.command(help='Export DiffSinger acoustic model to ONNX format.')
 @click.option('--exp', type=str, required=True, metavar='<exp>', help='Choose an experiment to export.')
@@ -226,6 +233,91 @@ def nsf_hifigan(
     except KeyboardInterrupt:
         exit(-1)
 
+
+@main.command(help='Export RefineGAN vocoder model to ONNX format.')
+@click.option('--exp', type=str, required=True, metavar='<exp>', help='Choose an experiment to export.')
+@click.option('--ckpt', type=str, required=False, metavar='<steps>', help='Checkpoint training steps.')
+@click.option('--out', type=str, required=False, metavar='<dir>', help='Output directory for the artifacts.')
+@click.option('--type', type=str, required=False, default='onnx', metavar='<type>', help='Specify the type of the target model file.')
+def refinegan(
+    exp: str,
+    ckpt: str = None,
+    out: str = None,
+    type: str = None
+):
+    exp = find_exp(exp)
+    if out is None:
+        out = root_dir / 'artifacts' / 'refinegan'
+    else:
+        out = Path(out)
+    out = out.resolve()
+    Path(out).mkdir(parents=True, exist_ok=True)
+
+    sys.argv = [
+        sys.argv[0],
+        '--exp_name',
+        exp,
+        '--infer'
+    ]
+    set_hparams()
+    from modules.refinegan.refinegan import RefineGAN
+
+    class ExportableRefineGAN(RefineGAN):
+        def forward(self, mel: torch.Tensor, f0: torch.Tensor):
+            mel = mel.transpose(1, 2) * 2.30259
+            wav = self.model(mel, f0[:, None])
+            return wav
+
+    if ckpt is None:
+        ckpt = find_newest_ckpt(exp=root_dir / 'ckpt' / exp)
+    config = root_dir / 'ckpt' / exp / 'config.json'
+
+    checkpoint = torch.load(ckpt, map_location="cpu")
+    model = checkpoint["state_dict"]
+
+    generator_params = {
+        k.replace("generator.", ""): v
+        for k, v in model.items()
+        if k.startswith("generator.")
+    }
+
+    if type == "ckpt":
+        pt_path = out / "model"
+        torch.save(
+            {
+                "generator": generator_params,
+            },
+            pt_path,
+        )
+
+        print(f"Exported to {pt_path}, now exporting config")
+
+        shutil.copy(config, out / "config.json")
+        print(f"Config exported")
+    elif type == "onnx":
+        print(f"Exporting ONNX")
+        model = ExportableRefineGAN(checkpoint_path=ckpt, config_file=config)
+        model.eval()
+        print(f"Model loaded")
+
+        mel = torch.randn(1, 80, 128)
+        f0 = torch.randn(1, 80)
+
+        torch.onnx.export(
+            model,
+            (mel, f0),
+            out / "refinegan.onnx",
+            input_names=["mel", "f0"],
+            output_names=["waveform"],
+            opset_version=16,
+            dynamic_axes={
+                "mel": {0: "batch", 1: "n_frames"},
+                "f0": {0: "batch", 1: "n_frames"},
+                "waveform": {0: "batch", 1: "wave_length"},
+            },
+        )
+    else:
+        print("Unknown export type")
 
 if __name__ == '__main__':
     main()

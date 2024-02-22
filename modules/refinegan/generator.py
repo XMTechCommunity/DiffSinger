@@ -6,6 +6,7 @@ from torch import nn
 from torch.nn import functional as F
 from torch.nn.utils import remove_weight_norm, weight_norm
 
+import soundfile as sf
 
 def get_padding(kernel_size: int, dilation: int = 1) -> int:
     return int((kernel_size * dilation - dilation) / 2)
@@ -184,13 +185,18 @@ class CombToothGen(nn.Module):
 
         x = torch.cumsum(f0 / self.sampling_rate, axis=2)
         x = x - torch.round(x)
-        combtooth = torch.sinc(self.sampling_rate * x / (f0 + 1e-3)) * self.wave_amp
+        #combtooth = torch.sinc(self.sampling_rate * x / (f0 + 1e-3)) * self.wave_amp
+        combtooth = (torch.sin(torch.pi * (self.sampling_rate * x / (f0 + 1e-3))) / (torch.pi * (self.sampling_rate * x / (f0 + 1e-3))))* self.wave_amp
+        
+        combtooth = torch.where(torch.isnan(combtooth), torch.full_like(combtooth, 0.1), combtooth)
+        
+        
+        
 
         uv = (f0 > self.voiced_threshold).float()
         noise_amp = uv * self.noise_std + (1 - uv) * self.wave_amp / 3
         noise = noise_amp * torch.randn_like(combtooth)
         combtooth = combtooth * uv + noise
-
         return combtooth
 
 
@@ -474,5 +480,6 @@ class RefineGANGenerator(nn.Module):
         x = F.leaky_relu(x, self.leaky_relu_slope)
         x = self.output_conv(x)
         x = torch.tanh(x)
+        x = x.squeeze(1)
 
         return x
