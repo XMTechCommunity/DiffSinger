@@ -282,7 +282,7 @@ def refinegan(
     }
 
     if type == "ckpt":
-        pt_path = out / "model"
+        pt_path = out / "model.ckpt"
         torch.save(
             {
                 "generator": generator_params,
