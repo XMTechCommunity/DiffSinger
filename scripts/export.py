@@ -290,12 +290,12 @@ def refinegan(
             pt_path,
         )
 
-        print(f"Exported to {pt_path}, now exporting config")
+        print(f"Exported to {pt_path}")
 
         shutil.copy(config, out / "config.json")
-        print(f"Config exported")
     elif type == "onnx":
         print(f"Exporting ONNX")
+        shutil.copy(config, out / "config.json")
         model = ExportableRefineGAN(checkpoint_path=ckpt, config_file=config)
         model.eval()
         print(f"Model loaded")
@@ -316,6 +316,7 @@ def refinegan(
                 "waveform": {0: "batch", 1: "wave_length"},
             },
         )
+        print(f"Exported to {out / "refinegan.onnx"}")
     else:
         print("Unknown export type")
 
