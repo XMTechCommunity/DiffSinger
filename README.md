@@ -11,10 +11,10 @@ We will ensure compatibility with the original repository in the early stages, a
 ## 不兼容更新预告 Notice of Incompatible Update
 
 为方便后续更新维护，由 XMTech 的 DiffSinger 分支将在近期进行功能性切割，不再确保与 OpenVPI 仓库 DiffSinger 保持兼容。
-<br />导出的 ONNX 文件不能确保在当前任何版本 OpenUtau 中调用，我们会开发临时的推理服务端用于图形化推理（接口类似于 ENUNU_Server）。
+<br />我们会尽量本分支保证导出的模型与OpenVPI版本生态兼容。
 <br />【新增】
 <br />1.新增对 refinegan 声码器的支持，并将默认推荐声码器修改为 Kouon_Vocoder_refinegan。
-<br />（Kouon_Vocoder 公测群号：749073684）
+<br />（ONNX版：[OpenUtau Dependencies](https://github.com/komisteng/DiffSinger/releases/tag/v0.0.3)）
 <br />2.新增 multi-langs 项目词典支持，并将默认配置文件的词典替换为 multi-langs 三段式中文词典。
 <br />【修改】
 <br />1.取消独立的预处理步骤，优化训练流程，当不存在对应 binary 文件夹时自动进行预处理。
@@ -22,13 +22,13 @@ We will ensure compatibility with the original repository in the early stages, a
 <br />3.优化 onnx 文件导出流程。
 <br />【移除】
 <br />1.彻底移除残留的 DiffSpeech 组件。
-<br />2.移除唱法模型流程，初版本仅支持性别与辅音速度。
+<br />2.唱法模型仅保留力度参数（Tension）。
 
 <br />In order to facilitate subsequent update maintenance, the DiffSinger branch maintained by XMTech will be functional cut in the near future, and compatibility with the DiffSinger repository in the OpenVPI warehouse will no longer be guaranteed.
-<br />The ONNX files exported cannot ensure compatibility with any current version of OpenUtau, and we will develop a temporary inference server for graphical inference (with an interface similar to ENUNU_Server).
+<br />We will try to ensure that the exported models are compatible with the OpenVPI version ecosystem.
 <br />【New】
 <br />1.Add support for refinegan vocoder, and change the default recommended vocoder to Kouon_Vocoder_refinegan.
-<br />(Kouon_Vocoder public test QQ group number: 749073684)
+<br />(ONNX version: [OpenUtau Dependencies](https://github.com/komisteng/DiffSinger/releases/tag/v0.0.3))
 <br />2.Add multi-langs project dictionary support, and replace the dictionary in the default configuration file with the three-part Chinese dictionary.
 <br />【Modify】
 <br />1.Cancel the independent preprocessing step, optimize the training process, and automatically perform preprocessing when the corresponding binary folder does not exist.
@@ -36,7 +36,7 @@ We will ensure compatibility with the original repository in the early stages, a
 <br />3.Optimize the export process of onnx files.
 <br />【Remove】
 <br />1.Completely remove the residual DiffSpeech components.
-<br />2.Remove the variance model workflow and create a preliminary version that supports gender and vel.
+<br />2.Only retain the Tension in the variance.
 
 ## References
 - **DiffSinger**: [Original](https://github.com/MoonInTheRiver/DiffSinger),[OpenVPI maintained version](https://github.com/openvpi/DiffSinger)
