@@ -14,7 +14,7 @@ We will ensure compatibility with the original repository in the early stages, a
 <br />我们会尽量本分支保证导出的模型与OpenVPI版本生态兼容。
 <br />【新增】
 <br />1.新增对 refinegan 声码器的支持，并将默认推荐声码器修改为 Kouon_Vocoder_refinegan。
-<br />（ONNX版：[OpenUtau Dependencies](https://github.com/komisteng/DiffSinger/releases/tag/v0.0.3)，公开测试QQ群：749073684）
+<br />（ONNX版：[OpenUtau Dependencies](https://github.com/komisteng/DiffSinger/releases/tag/v0.0.3)，公测QQ群：749073684）
 <br />2.新增 multi-langs 项目词典支持，并将默认配置文件的词典替换为 multi-langs 三段式中文词典。
 <br />【修改】
 <br />1.取消独立的预处理步骤，优化训练流程，当不存在对应 binary 文件夹时自动进行预处理。
