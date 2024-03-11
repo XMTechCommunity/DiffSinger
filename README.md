@@ -14,7 +14,7 @@ We will ensure compatibility with the original repository in the early stages, a
 <br />我们会尽量本分支保证导出的模型与OpenVPI版本生态兼容。
 <br />【新增】
 <br />1.新增对 refinegan 声码器的支持，并将默认推荐声码器修改为 Kouon_Vocoder_refinegan。
-<br />（ONNX版：[OpenUtau Dependencies](https://github.com/komisteng/DiffSinger/releases/tag/v0.0.3)，公测QQ群：749073684）
+<br />（ONNX版：[OpenUtau Dependencies](https://github.com/XMTechCommunity/DiffSinger/releases/tag/v0.0.3)，公测QQ群：749073684）
 <br />2.新增 multi-langs 项目词典支持，并将默认配置文件的词典替换为 multi-langs 三段式中文词典。
 <br />【修改】
 <br />1.取消独立的预处理步骤，优化训练流程，当不存在对应 binary 文件夹时自动进行预处理。
@@ -28,7 +28,7 @@ We will ensure compatibility with the original repository in the early stages, a
 <br />We will try to ensure that the exported models are compatible with the OpenVPI version ecosystem.
 <br />【New】
 <br />1.Add support for refinegan vocoder, and change the default recommended vocoder to Kouon_Vocoder_refinegan.
-<br />(ONNX version: [OpenUtau Dependencies](https://github.com/komisteng/DiffSinger/releases/tag/v0.0.3), public test QQ group: 749073684)
+<br />(ONNX version: [OpenUtau Dependencies](https://github.com/XMTechCommunity/DiffSinger/releases/tag/v0.0.3), public test QQ group: 749073684)
 <br />2.Add multi-langs project dictionary support, and replace the dictionary in the default configuration file with the three-part Chinese dictionary.
 <br />【Modify】
 <br />1.Cancel the independent preprocessing step, optimize the training process, and automatically perform preprocessing when the corresponding binary folder does not exist.
@@ -40,7 +40,7 @@ We will ensure compatibility with the original repository in the early stages, a
 
 ## References
 - **DiffSinger**: [Original](https://github.com/MoonInTheRiver/DiffSinger),[OpenVPI maintained version](https://github.com/openvpi/DiffSinger)
-- **DiffSinger_XMTech_Maintained_Version**: [Github](https://github.com/komisteng/DiffSinger),[启智 OpenI](https://openi.pcl.ac.cn/XMTech/DiffSinger)
+- **DiffSinger_XMTech_Maintained_Version**: [Github](https://github.com/XMTechCommunity/DiffSinger),[启智 OpenI](https://openi.pcl.ac.cn/XMTech/DiffSinger)
 - **DiffSinger_Toolkit 声库制作辅助工具**: [启智 OpenI](https://openi.pcl.ac.cn/XMTech/DiffSinger_Toolkit)
 - **OpenUtau**: [Github](https://github.com/stakira/OpenUtau)
 - **OpenUtau For DiffSinger 白糖の正义铃维护版本**: [Github](https://github.com/atonyxu/OpenUtau)
